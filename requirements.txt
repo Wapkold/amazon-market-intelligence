@@ -1,0 +1,7 @@
+pandas>=2.2
+numpy>=1.26
+matplotlib>=3.8
+scikit-learn>=1.4
+scipy>=1.11
+tabulate>=0.9
+pytest>=8.0
