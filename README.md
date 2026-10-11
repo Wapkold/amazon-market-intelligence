@@ -1,5 +1,9 @@
 # Amazon Market Intelligence
 
+[![tests](https://github.com/Wapkold/amazon-market-intelligence/actions/workflows/tests.yml/badge.svg)](https://github.com/Wapkold/amazon-market-intelligence/actions/workflows/tests.yml)
+
+**Итоговый отчёт: https://wapkold.github.io/amazon-market-intelligence/** (графики, таблицы и выводы на одной странице).
+
 Аналитическая витрина рынка электроники Amazon на основе «сырой» выгрузки 42 675 товарных карточек (21–30 августа 2025).
 
 Проект отвечает на один методический вопрос и один содержательный.
@@ -43,7 +47,7 @@
 - **Число отзывов — единственный сильный предиктор спроса.** В модели градиентного бустинга (AUC = 0.870) его перестановочная важность в 8 раз выше следующего признака. Все значки, купоны и параметры доставки вместе дают меньше 2% прироста AUC.
 - **Название товара само по себе предсказывает спрос с AUC = 0.757** — потому что маркирует товарную нишу, а не потому, что формулировка влияет на продажи.
 
-Подробности, таблицы и графики — в отчёте `reports/index.html`.
+Подробности, таблицы и графики — в [отчёте](https://wapkold.github.io/amazon-market-intelligence/) (исходник: `reports/index.html`).
 
 ---
 
@@ -52,7 +56,7 @@
 ```
 amazon-market-intelligence/
 ├── data/
-│   ├── raw/amazon_sales_raw.csv        исходная выгрузка
+│   ├── raw/amazon_sales_raw.csv        исходная выгрузка (в git не входит, см. data/raw/README.md)
 │   └── processed/
 │       ├── listings.csv                уровень размещения в выдаче (41 713)
 │       └── products.csv                уровень товара (8 630)
@@ -92,6 +96,8 @@ pip install -r requirements.txt
 ```bash
 python scripts/run_all.py
 ```
+
+Сырая выгрузка в репозиторий не входит (см. `data/raw/README.md`). Без неё анализ и отчёт пересобираются из уже очищенных данных: `python scripts/02_analyze.py`.
 
 Полный прогон занимает около 35 секунд и пересобирает всё: очищенные данные, все графики, `data_quality.md` и `reports/index.html`. Отдельные шаги — `python scripts/01_build_dataset.py` и `python scripts/02_analyze.py`.
 
