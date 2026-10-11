@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+
+# Сырая выгрузка в репозиторий не кладётся (см. data/raw/README.md)
+data/raw/*.csv
+
+# IDE и ОС
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
